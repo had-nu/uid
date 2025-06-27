@@ -12,3 +12,9 @@ This repository is subject to ethical use constraints. Refer to the central `ETH
 
 CERN-OHL-S
 See the LICENSE file for full details.
+
+---
+Conteúdo: Mecanismo de geração de uIDs vivas, entropia biométrica, hardware heuristics
+Licença: CERN OHL-S (Strongly Reciprocal)
+Motivo: Protege os direitos do criador e obriga qualquer modificação a permanecer open source sob as mesmas condições.
+Cláusula Ética: Obrigatoriedade de informar a pessoa usuária sobre como sua entropia é usada. Proibição explícita de mineração de dados.
