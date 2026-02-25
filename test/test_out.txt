@@ -1,0 +1,403 @@
+=== RUN   TestTokenSelfVerifies
+runtime: goroutine stack exceeds 1000000000-byte limit
+runtime: sp=0xc0202c0348 stack=[0xc0202c0000, 0xc0402c0000]
+fatal error: stack overflow
+
+runtime stack:
+runtime.throw({0x5f68d6?, 0xffffffffffffffff?})
+	/usr/lib/go-1.25/src/runtime/panic.go:1094 +0x48 fp=0xc0000a5e98 sp=0xc0000a5e68 pc=0x478dc8
+runtime.newstack()
+	/usr/lib/go-1.25/src/runtime/stack.go:1159 +0x5bd fp=0xc0000a5fc8 sp=0xc0000a5e98 pc=0x45de1d
+runtime.morestack()
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:620 +0x7d fp=0xc0000a5fd0 sp=0xc0000a5fc8 pc=0x47e77d
+
+goroutine 17 gp=0xc000196380 m=5 mp=0xc000080808 [running]:
+reflect.valueInterface({0x5ea320?, 0xc00f35ab40?, 0x199?}, 0x1?)
+	/usr/lib/go-1.25/src/reflect/value.go:1476 +0x114 fp=0xc0202c0358 sp=0xc0202c0350 pc=0x4c5874
+reflect.Value.Interface(...)
+	/usr/lib/go-1.25/src/reflect/value.go:1473
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc012b80d50, 0xc000132180, {0x5ea320?, 0xc00f35ab40?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1861 +0x145 fp=0xc0202c0558 sp=0xc0202c0358 pc=0x5527a5
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc012b80d50, 0xc000132180, {0x5c7020?, 0xc00f35ab40?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0202c0598 sp=0xc0202c0558 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc012b80d50, 0xc000132180, {0x5c7020?, 0xc00f35ab40?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0202c05f8 sp=0xc0202c0598 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc00f35ab40})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0202c0668 sp=0xc0202c05f8 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x5c7020?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0202c0690 sp=0xc0202c0668 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc012b80d20, 0xc000132180, {0x5ea320?, 0xc00f35a6c0?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0202c0890 sp=0xc0202c0690 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc012b80d20, 0xc000132180, {0x5c7020?, 0xc00f35a6c0?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0202c08d0 sp=0xc0202c0890 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc012b80d20, 0xc000132180, {0x5c7020?, 0xc00f35a6c0?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0202c0930 sp=0xc0202c08d0 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc00f35a6c0})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0202c09a0 sp=0xc0202c0930 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x5c7020?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0202c09c8 sp=0xc0202c09a0 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc012b80cf0, 0xc000132180, {0x5ea320?, 0xc00f35a240?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0202c0bc8 sp=0xc0202c09c8 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc012b80cf0, 0xc000132180, {0x5c7020?, 0xc00f35a240?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0202c0c08 sp=0xc0202c0bc8 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc012b80cf0, 0xc000132180, {0x5c7020?, 0xc00f35a240?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0202c0c68 sp=0xc0202c0c08 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc00f35a240})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0202c0cd8 sp=0xc0202c0c68 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x5c7020?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0202c0d00 sp=0xc0202c0cd8 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc012b80cc0, 0xc000132180, {0x5ea320?, 0xc00f359d40?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0202c0f00 sp=0xc0202c0d00 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc012b80cc0, 0xc000132180, {0x5c7020?, 0xc00f359d40?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0202c0f40 sp=0xc0202c0f00 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc012b80cc0, 0xc000132180, {0x5c7020?, 0xc00f359d40?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0202c0fa0 sp=0xc0202c0f40 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc00f359d40})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0202c1010 sp=0xc0202c0fa0 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x5c7020?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0202c1038 sp=0xc0202c1010 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc012b80c90, 0xc000132180, {0x5ea320?, 0xc00f3598c0?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0202c1238 sp=0xc0202c1038 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc012b80c90, 0xc000132180, {0x5c7020?, 0xc00f3598c0?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0202c1278 sp=0xc0202c1238 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc012b80c90, 0xc000132180, {0x5c7020?, 0xc00f3598c0?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0202c12d8 sp=0xc0202c1278 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc00f3598c0})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0202c1348 sp=0xc0202c12d8 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x5c7020?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0202c1370 sp=0xc0202c1348 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc012b80c60, 0xc000132180, {0x5ea320?, 0xc00f359440?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0202c1570 sp=0xc0202c1370 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc012b80c60, 0xc000132180, {0x5c7020?, 0xc00f359440?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0202c15b0 sp=0xc0202c1570 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc012b80c60, 0xc000132180, {0x5c7020?, 0xc00f359440?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0202c1610 sp=0xc0202c15b0 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc00f359440})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0202c1680 sp=0xc0202c1610 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x5c7020?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0202c16a8 sp=0xc0202c1680 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc012b80c30, 0xc000132180, {0x5ea320?, 0xc00f358fc0?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0202c18a8 sp=0xc0202c16a8 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc012b80c30, 0xc000132180, {0x5c7020?, 0xc00f358fc0?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0202c18e8 sp=0xc0202c18a8 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc012b80c30, 0xc000132180, {0x5c7020?, 0xc00f358fc0?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0202c1948 sp=0xc0202c18e8 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc00f358fc0})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0202c19b8 sp=0xc0202c1948 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x5c7020?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0202c19e0 sp=0xc0202c19b8 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc012b80c00, 0xc000132180, {0x5ea320?, 0xc00f358b40?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0202c1be0 sp=0xc0202c19e0 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc012b80c00, 0xc000132180, {0x5c7020?, 0xc00f358b40?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0202c1c20 sp=0xc0202c1be0 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc012b80c00, 0xc000132180, {0x5c7020?, 0xc00f358b40?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0202c1c80 sp=0xc0202c1c20 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc00f358b40})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0202c1cf0 sp=0xc0202c1c80 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x5c7020?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0202c1d18 sp=0xc0202c1cf0 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc012b80bd0, 0xc000132180, {0x5ea320?, 0xc00f3586c0?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0202c1f18 sp=0xc0202c1d18 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc012b80bd0, 0xc000132180, {0x5c7020?, 0xc00f3586c0?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0202c1f58 sp=0xc0202c1f18 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc012b80bd0, 0xc000132180, {0x5c7020?, 0xc00f3586c0?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0202c1fb8 sp=0xc0202c1f58 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc00f3586c0})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0202c2028 sp=0xc0202c1fb8 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x5c7020?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0202c2050 sp=0xc0202c2028 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc012b80ba0, 0xc000132180, {0x5ea320?, 0xc00f358240?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0202c2250 sp=0xc0202c2050 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc012b80ba0, 0xc000132180, {0x5c7020?, 0xc00f358240?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0202c2290 sp=0xc0202c2250 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc012b80ba0, 0xc000132180, {0x5c7020?, 0xc00f358240?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0202c22f0 sp=0xc0202c2290 pc=0x54d606
+...3257608 frames elided...
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc000190570, 0xc000132180, {0x5c7020?, 0xc0002b5200?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0402be100 sp=0xc0402be0c0 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc000190570, 0xc000132180, {0x5c7020?, 0xc0002b5200?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0402be160 sp=0xc0402be100 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc0002b5200})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0402be1d0 sp=0xc0402be160 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x770fc0?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0402be1f8 sp=0xc0402be1d0 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc000190540, 0xc000132180, {0x5ea320?, 0xc0002b4fc0?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0402be3f8 sp=0xc0402be1f8 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc000190540, 0xc000132180, {0x5c7020?, 0xc0002b4fc0?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0402be438 sp=0xc0402be3f8 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc000190540, 0xc000132180, {0x5c7020?, 0xc0002b4fc0?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0402be498 sp=0xc0402be438 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc0002b4fc0})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0402be508 sp=0xc0402be498 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x770fc0?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0402be530 sp=0xc0402be508 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc000190510, 0xc000132180, {0x5ea320?, 0xc0002b4d80?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0402be730 sp=0xc0402be530 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc000190510, 0xc000132180, {0x5c7020?, 0xc0002b4d80?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0402be770 sp=0xc0402be730 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc000190510, 0xc000132180, {0x5c7020?, 0xc0002b4d80?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0402be7d0 sp=0xc0402be770 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc0002b4d80})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0402be840 sp=0xc0402be7d0 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x770fc0?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0402be868 sp=0xc0402be840 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc0001904e0, 0xc000132180, {0x5ea320?, 0xc0002b4b40?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0402bea68 sp=0xc0402be868 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc0001904e0, 0xc000132180, {0x5c7020?, 0xc0002b4b40?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0402beaa8 sp=0xc0402bea68 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc0001904e0, 0xc000132180, {0x5c7020?, 0xc0002b4b40?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0402beb08 sp=0xc0402beaa8 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc0002b4b40})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0402beb78 sp=0xc0402beb08 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x770fc0?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0402beba0 sp=0xc0402beb78 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc0001904b0, 0xc000132180, {0x5ea320?, 0xc0002b4900?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0402beda0 sp=0xc0402beba0 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc0001904b0, 0xc000132180, {0x5c7020?, 0xc0002b4900?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0402bede0 sp=0xc0402beda0 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc0001904b0, 0xc000132180, {0x5c7020?, 0xc0002b4900?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0402bee40 sp=0xc0402bede0 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc0002b4900})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0402beeb0 sp=0xc0402bee40 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x770fc0?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0402beed8 sp=0xc0402beeb0 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc000190480, 0xc000132180, {0x5ea320?, 0xc0002b46c0?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0402bf0d8 sp=0xc0402beed8 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc000190480, 0xc000132180, {0x5c7020?, 0xc0002b46c0?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0402bf118 sp=0xc0402bf0d8 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc000190480, 0xc000132180, {0x5c7020?, 0xc0002b46c0?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0402bf178 sp=0xc0402bf118 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc0002b46c0})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0402bf1e8 sp=0xc0402bf178 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x770fc0?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0402bf210 sp=0xc0402bf1e8 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc000190450, 0xc000132180, {0x5ea320?, 0xc0002b4480?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0402bf410 sp=0xc0402bf210 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc000190450, 0xc000132180, {0x5c7020?, 0xc0002b4480?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0402bf450 sp=0xc0402bf410 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc000190450, 0xc000132180, {0x5c7020?, 0xc0002b4480?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0402bf4b0 sp=0xc0402bf450 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc0002b4480})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0402bf520 sp=0xc0402bf4b0 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x770fc0?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0402bf548 sp=0xc0402bf520 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc000190420, 0xc000132180, {0x5ea320?, 0xc0002b4240?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0402bf748 sp=0xc0402bf548 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc000190420, 0xc000132180, {0x5c7020?, 0xc0002b4240?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0402bf788 sp=0xc0402bf748 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc000190420, 0xc000132180, {0x5c7020?, 0xc0002b4240?, 0x5ea320?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0402bf7e8 sp=0xc0402bf788 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc0002b4240})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0402bf858 sp=0xc0402bf7e8 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).MarshalCBOR(0x770fc0?)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:51 +0x2f fp=0xc0402bf880 sp=0xc0402bf858 pc=0x58c02f
+github.com/fxamacker/cbor/v2.encodeMarshalerType(0xc000190300, 0xc000132180, {0x5ea320?, 0xc0002b4000?, 0x604830?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1867 +0x224 fp=0xc0402bfa80 sp=0xc0402bf880 pc=0x552884
+github.com/fxamacker/cbor/v2.getEncodeIndirectValueFunc.func1(0xc000190300, 0xc000132180, {0x5c7020?, 0xc0002b4000?, 0x485cd1?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:2103 +0xc9 fp=0xc0402bfac0 sp=0xc0402bfa80 pc=0x554229
+github.com/fxamacker/cbor/v2.encode(0xc000190300, 0xc000132180, {0x5c7020?, 0xc0002b4000?, 0xc0002b4000?})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1070 +0xe6 fp=0xc0402bfb20 sp=0xc0402bfac0 pc=0x54d606
+github.com/fxamacker/cbor/v2.(*encMode).Marshal(0xc000132180, {0x5c7020, 0xc0002b4000})
+	/home/hadnu/go/pkg/mod/github.com/fxamacker/cbor/v2@v2.9.0/encode.go:1005 +0xbc fp=0xc0402bfb90 sp=0xc0402bfb20 pc=0x54d35c
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).CalculateFinalDigest(0xc0002b4000)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:27 +0x87 fp=0xc0402bfbe8 sp=0xc0402bfb90 pc=0x58bf47
+github.com/had-nu/uid/pkg/token.(*UIDZeroSoulbound).Seal(...)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/cbor.go:41
+github.com/had-nu/uid/pkg/token.runSimulatedCeremony(0xc0001961c0, 0x2a)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/token_test.go:36 +0x2ff fp=0xc0402bfe50 sp=0xc0402bfbe8 pc=0x58ce7f
+github.com/had-nu/uid/pkg/token.TestTokenSelfVerifies(0xc0001961c0)
+	/home/hadnu/Documentos/Projects/homelab/uid0/pkg/token/token_test.go:48 +0x5c fp=0xc0402bff70 sp=0xc0402bfe50 pc=0x58d0fc
+testing.tRunner(0xc0001961c0, 0x604000)
+	/usr/lib/go-1.25/src/testing/testing.go:1934 +0xea fp=0xc0402bffc0 sp=0xc0402bff70 pc=0x4f1b6a
+testing.(*T).Run.gowrap1()
+	/usr/lib/go-1.25/src/testing/testing.go:1997 +0x25 fp=0xc0402bffe0 sp=0xc0402bffc0 pc=0x4f2cc5
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc0402bffe8 sp=0xc0402bffe0 pc=0x4804a1
+created by testing.(*T).Run in goroutine 1
+	/usr/lib/go-1.25/src/testing/testing.go:1997 +0x465
+
+goroutine 1 gp=0xc000002380 m=nil [chan receive]:
+runtime.gopark(0x300000063b9a0?, 0x3003daecd03c8?, 0xc8?, 0x3?, 0x7e3df5944a78?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc00010c998 sp=0xc00010c978 pc=0x478eee
+runtime.chanrecv(0xc000194080, 0xc00010ca7f, 0x1)
+	/usr/lib/go-1.25/src/runtime/chan.go:667 +0x473 fp=0xc00010ca10 sp=0xc00010c998 pc=0x410533
+runtime.chanrecv1(0x77b620?, 0x63f3a0?)
+	/usr/lib/go-1.25/src/runtime/chan.go:509 +0x12 fp=0xc00010ca38 sp=0xc00010ca10 pc=0x4100b2
+testing.(*T).Run(0xc000196000, {0x5f8a41?, 0xc00010cb30?}, 0x604000)
+	/usr/lib/go-1.25/src/testing/testing.go:2005 +0x485 fp=0xc00010cb10 sp=0xc00010ca38 pc=0x4f2b45
+testing.runTests.func1(0xc000196000)
+	/usr/lib/go-1.25/src/testing/testing.go:2477 +0x37 fp=0xc00010cb50 sp=0xc00010cb10 pc=0x4f4e57
+testing.tRunner(0xc000196000, 0xc00010cc70)
+	/usr/lib/go-1.25/src/testing/testing.go:1934 +0xea fp=0xc00010cba0 sp=0xc00010cb50 pc=0x4f1b6a
+testing.runTests(0xc00018c000, {0x775940, 0x5, 0x5}, {0x7?, 0xc000038900?, 0x77b860?})
+	/usr/lib/go-1.25/src/testing/testing.go:2475 +0x4b4 fp=0xc00010cca0 sp=0xc00010cba0 pc=0x4f4d34
+testing.(*M).Run(0xc00007e140)
+	/usr/lib/go-1.25/src/testing/testing.go:2337 +0x63a fp=0xc00010ced0 sp=0xc00010cca0 pc=0x4f36da
+main.main()
+	_testmain.go:53 +0x9b fp=0xc00010cf50 sp=0xc00010ced0 pc=0x58da5b
+runtime.main()
+	/usr/lib/go-1.25/src/runtime/proc.go:285 +0x29d fp=0xc00010cfe0 sp=0xc00010cf50 pc=0x4446fd
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc00010cfe8 sp=0xc00010cfe0 pc=0x4804a1
+
+goroutine 2 gp=0xc0000028c0 m=nil [force gc (idle)]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc000056fa8 sp=0xc000056f88 pc=0x478eee
+runtime.goparkunlock(...)
+	/usr/lib/go-1.25/src/runtime/proc.go:466
+runtime.forcegchelper()
+	/usr/lib/go-1.25/src/runtime/proc.go:373 +0xb3 fp=0xc000056fe0 sp=0xc000056fa8 pc=0x444a33
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc000056fe8 sp=0xc000056fe0 pc=0x4804a1
+created by runtime.init.7 in goroutine 1
+	/usr/lib/go-1.25/src/runtime/proc.go:361 +0x1a
+
+goroutine 3 gp=0xc000002e00 m=nil [GC sweep wait]:
+runtime.gopark(0x1?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc000057780 sp=0xc000057760 pc=0x478eee
+runtime.goparkunlock(...)
+	/usr/lib/go-1.25/src/runtime/proc.go:466
+runtime.bgsweep(0xc000078000)
+	/usr/lib/go-1.25/src/runtime/mgcsweep.go:323 +0xdf fp=0xc0000577c8 sp=0xc000057780 pc=0x42cb9f
+runtime.gcenable.gowrap1()
+	/usr/lib/go-1.25/src/runtime/mgc.go:212 +0x25 fp=0xc0000577e0 sp=0xc0000577c8 pc=0x420ba5
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc0000577e8 sp=0xc0000577e0 pc=0x4804a1
+created by runtime.gcenable in goroutine 1
+	/usr/lib/go-1.25/src/runtime/mgc.go:212 +0x66
+
+goroutine 4 gp=0xc000002fc0 m=nil [GC scavenge wait]:
+runtime.gopark(0x10000?, 0x639658?, 0x0?, 0x0?, 0x0?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc000057f78 sp=0xc000057f58 pc=0x478eee
+runtime.goparkunlock(...)
+	/usr/lib/go-1.25/src/runtime/proc.go:466
+runtime.(*scavengerState).park(0x77b8e0)
+	/usr/lib/go-1.25/src/runtime/mgcscavenge.go:425 +0x49 fp=0xc000057fa8 sp=0xc000057f78 pc=0x42a629
+runtime.bgscavenge(0xc000078000)
+	/usr/lib/go-1.25/src/runtime/mgcscavenge.go:658 +0x59 fp=0xc000057fc8 sp=0xc000057fa8 pc=0x42abd9
+runtime.gcenable.gowrap2()
+	/usr/lib/go-1.25/src/runtime/mgc.go:213 +0x25 fp=0xc000057fe0 sp=0xc000057fc8 pc=0x420b45
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc000057fe8 sp=0xc000057fe0 pc=0x4804a1
+created by runtime.gcenable in goroutine 1
+	/usr/lib/go-1.25/src/runtime/mgc.go:213 +0xa5
+
+goroutine 5 gp=0xc000003500 m=nil [GOMAXPROCS updater (idle)]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc000058788 sp=0xc000058768 pc=0x478eee
+runtime.goparkunlock(...)
+	/usr/lib/go-1.25/src/runtime/proc.go:466
+runtime.updateMaxProcsGoroutine()
+	/usr/lib/go-1.25/src/runtime/proc.go:6720 +0xe7 fp=0xc0000587e0 sp=0xc000058788 pc=0x452987
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc0000587e8 sp=0xc0000587e0 pc=0x4804a1
+created by runtime.defaultGOMAXPROCSUpdateEnable in goroutine 1
+	/usr/lib/go-1.25/src/runtime/proc.go:6708 +0x37
+
+goroutine 6 gp=0xc0000036c0 m=nil [finalizer wait]:
+runtime.gopark(0x453955?, 0x7e3df59500f0?, 0x0?, 0x0?, 0x0?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc000056620 sp=0xc000056600 pc=0x478eee
+runtime.runFinalizers()
+	/usr/lib/go-1.25/src/runtime/mfinal.go:210 +0x107 fp=0xc0000567e0 sp=0xc000056620 pc=0x41fb47
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc0000567e8 sp=0xc0000567e0 pc=0x4804a1
+created by runtime.createfing in goroutine 1
+	/usr/lib/go-1.25/src/runtime/mfinal.go:172 +0x3d
+
+goroutine 22 gp=0xc000196540 m=nil [GC worker (idle)]:
+runtime.gopark(0x0?, 0xc000052750?, 0x60?, 0x27?, 0x4f1773?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc000052738 sp=0xc000052718 pc=0x478eee
+runtime.gcBgMarkWorker(0xc000192150)
+	/usr/lib/go-1.25/src/runtime/mgc.go:1463 +0xeb fp=0xc0000527c8 sp=0xc000052738 pc=0x42328b
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x25 fp=0xc0000527e0 sp=0xc0000527c8 pc=0x423165
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc0000527e8 sp=0xc0000527e0 pc=0x4804a1
+created by runtime.gcBgMarkStartWorkers in goroutine 17
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x105
+
+goroutine 23 gp=0xc000196700 m=nil [GC worker (idle)]:
+runtime.gopark(0x85007aaa0e7?, 0x3?, 0xde?, 0x80?, 0x0?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc000786f38 sp=0xc000786f18 pc=0x478eee
+runtime.gcBgMarkWorker(0xc000192150)
+	/usr/lib/go-1.25/src/runtime/mgc.go:1463 +0xeb fp=0xc000786fc8 sp=0xc000786f38 pc=0x42328b
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x25 fp=0xc000786fe0 sp=0xc000786fc8 pc=0x423165
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc000786fe8 sp=0xc000786fe0 pc=0x4804a1
+created by runtime.gcBgMarkStartWorkers in goroutine 17
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x105
+
+goroutine 24 gp=0xc0001968c0 m=nil [GC worker (idle)]:
+runtime.gopark(0x85007a9e9b1?, 0x3?, 0x43?, 0xe3?, 0x0?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc000053738 sp=0xc000053718 pc=0x478eee
+runtime.gcBgMarkWorker(0xc000192150)
+	/usr/lib/go-1.25/src/runtime/mgc.go:1463 +0xeb fp=0xc0000537c8 sp=0xc000053738 pc=0x42328b
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x25 fp=0xc0000537e0 sp=0xc0000537c8 pc=0x423165
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc0000537e8 sp=0xc0000537e0 pc=0x4804a1
+created by runtime.gcBgMarkStartWorkers in goroutine 17
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x105
+
+goroutine 25 gp=0xc000196a80 m=nil [GC worker (idle)]:
+runtime.gopark(0x79d480?, 0x1?, 0x7?, 0x86?, 0x0?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc000787738 sp=0xc000787718 pc=0x478eee
+runtime.gcBgMarkWorker(0xc000192150)
+	/usr/lib/go-1.25/src/runtime/mgc.go:1463 +0xeb fp=0xc0007877c8 sp=0xc000787738 pc=0x42328b
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x25 fp=0xc0007877e0 sp=0xc0007877c8 pc=0x423165
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc0007877e8 sp=0xc0007877e0 pc=0x4804a1
+created by runtime.gcBgMarkStartWorkers in goroutine 17
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x105
+
+goroutine 26 gp=0xc000196c40 m=nil [GC worker (idle)]:
+runtime.gopark(0x85007a9ea1b?, 0x3?, 0x64?, 0x26?, 0x0?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc000786738 sp=0xc000786718 pc=0x478eee
+runtime.gcBgMarkWorker(0xc000192150)
+	/usr/lib/go-1.25/src/runtime/mgc.go:1463 +0xeb fp=0xc0007867c8 sp=0xc000786738 pc=0x42328b
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x25 fp=0xc0007867e0 sp=0xc0007867c8 pc=0x423165
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc0007867e8 sp=0xc0007867e0 pc=0x4804a1
+created by runtime.gcBgMarkStartWorkers in goroutine 17
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x105
+
+goroutine 27 gp=0xc000196e00 m=nil [GC worker (idle)]:
+runtime.gopark(0x85007aaa01b?, 0x1?, 0xd8?, 0xdd?, 0x0?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc000054f38 sp=0xc000054f18 pc=0x478eee
+runtime.gcBgMarkWorker(0xc000192150)
+	/usr/lib/go-1.25/src/runtime/mgc.go:1463 +0xeb fp=0xc000054fc8 sp=0xc000054f38 pc=0x42328b
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x25 fp=0xc000054fe0 sp=0xc000054fc8 pc=0x423165
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc000054fe8 sp=0xc000054fe0 pc=0x4804a1
+created by runtime.gcBgMarkStartWorkers in goroutine 17
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x105
+
+goroutine 28 gp=0xc000196fc0 m=nil [GC worker (idle)]:
+runtime.gopark(0x85007a9ea45?, 0x3?, 0xfe?, 0x0?, 0x0?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc000055738 sp=0xc000055718 pc=0x478eee
+runtime.gcBgMarkWorker(0xc000192150)
+	/usr/lib/go-1.25/src/runtime/mgc.go:1463 +0xeb fp=0xc0000557c8 sp=0xc000055738 pc=0x42328b
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x25 fp=0xc0000557e0 sp=0xc0000557c8 pc=0x423165
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc0000557e8 sp=0xc0000557e0 pc=0x4804a1
+created by runtime.gcBgMarkStartWorkers in goroutine 17
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x105
+
+goroutine 29 gp=0xc000197180 m=nil [GC worker (idle)]:
+runtime.gopark(0x85007a9edd4?, 0x3?, 0xdc?, 0x5d?, 0x0?)
+	/usr/lib/go-1.25/src/runtime/proc.go:460 +0xce fp=0xc00010ff38 sp=0xc00010ff18 pc=0x478eee
+runtime.gcBgMarkWorker(0xc000192150)
+	/usr/lib/go-1.25/src/runtime/mgc.go:1463 +0xeb fp=0xc00010ffc8 sp=0xc00010ff38 pc=0x42328b
+runtime.gcBgMarkStartWorkers.gowrap1()
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x25 fp=0xc00010ffe0 sp=0xc00010ffc8 pc=0x423165
+runtime.goexit({})
+	/usr/lib/go-1.25/src/runtime/asm_amd64.s:1693 +0x1 fp=0xc00010ffe8 sp=0xc00010ffe0 pc=0x4804a1
+created by runtime.gcBgMarkStartWorkers in goroutine 17
+	/usr/lib/go-1.25/src/runtime/mgc.go:1373 +0x105
+FAIL	github.com/had-nu/uid/pkg/token	1.990s
+FAIL

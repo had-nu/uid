@@ -1,0 +1,26 @@
+package julian // import "github.com/soniakeys/meeus/v3/julian"
+
+Julian: Chapter 7, Julian day.
+
+Under "General remarks", Meeus describes the INT function as used in the book.
+In some contexts, math.Floor might be suitable, but I think more often,
+the functions base.FloorDiv or base.FloorDiv64 will be more appropriate.
+See documentation in package base.
+
+On p. 63, Modified Julian Day is defined. See constant JMod in package base.
+
+See also related functions JulianToGregorian and GregorianToJulian in package
+jm.
+
+func CalendarGregorianToJD(y, m int, d float64) float64
+func CalendarJulianToJD(y, m int, d float64) float64
+func DayOfWeek(jd float64) int
+func DayOfYear(y, m, d int, leap bool) int
+func DayOfYearGregorian(y, m, d int) int
+func DayOfYearJulian(y, m, d int) int
+func DayOfYearToCalendar(n int, leap bool) (m, d int)
+func JDToCalendar(jd float64) (year, month int, day float64)
+func JDToTime(jd float64) time.Time
+func LeapYearGregorian(y int) bool
+func LeapYearJulian(y int) bool
+func TimeToJD(t time.Time) float64

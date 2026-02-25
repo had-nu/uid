@@ -1,0 +1,14 @@
+package kyber1024 // import "github.com/cloudflare/circl/kem/kyber/kyber1024"
+
+Package kyber1024 implements the IND-CCA2 secure key encapsulation mechanism
+Kyber1024.CCAKEM as submitted to round 3 of the NIST PQC competition and
+described in
+
+https://pq-crystals.org/kyber/data/kyber-specification-round3.pdf
+
+const KeySeedSize = cpapke.KeySeedSize + 32 ...
+func GenerateKeyPair(rand io.Reader) (*PublicKey, *PrivateKey, error)
+func NewKeyFromSeed(seed []byte) (*PublicKey, *PrivateKey)
+func Scheme() kem.Scheme
+type PrivateKey struct{ ... }
+type PublicKey struct{ ... }

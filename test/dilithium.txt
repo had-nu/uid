@@ -1,0 +1,15 @@
+package mode3 // import "github.com/cloudflare/circl/sign/dilithium/mode3"
+
+mode3 implements the CRYSTALS-Dilithium signature scheme Dilithium3 as submitted
+to round3 of the NIST PQC competition and described in
+
+https://pq-crystals.org/dilithium/data/dilithium-specification-round3-20210208.pdf
+
+const SeedSize = common.SeedSize ...
+func GenerateKey(rand io.Reader) (*PublicKey, *PrivateKey, error)
+func NewKeyFromSeed(seed *[SeedSize]byte) (*PublicKey, *PrivateKey)
+func Scheme() sign.Scheme
+func SignTo(sk *PrivateKey, msg, sig []byte)
+func Verify(pk *PublicKey, msg, sig []byte) bool
+type PrivateKey internal.PrivateKey
+type PublicKey internal.PublicKey

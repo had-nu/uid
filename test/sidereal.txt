@@ -1,0 +1,8 @@
+package sidereal // import "github.com/soniakeys/meeus/v3/sidereal"
+
+Sidereal: Chapter 12, Sidereal Time at Greenwich.
+
+func Apparent(jd float64) unit.Time
+func Apparent0UT(jd float64) unit.Time
+func Mean(jd float64) unit.Time
+func Mean0UT(jd float64) unit.Time

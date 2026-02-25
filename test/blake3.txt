@@ -1,0 +1,15 @@
+package blake3 // import "lukechampine.com/blake3"
+
+Package blake3 implements the BLAKE3 cryptographic hash function.
+
+func BaoDecode(dst io.Writer, data, outboard io.Reader, root [32]byte) (bool, error)
+func BaoEncode(dst io.WriterAt, data io.Reader, dataLen int64, outboard bool) ([32]byte, error)
+func BaoEncodeBuf(data []byte, outboard bool) ([]byte, [32]byte)
+func BaoEncodedSize(dataLen int, outboard bool) int
+func BaoVerifyBuf(data, outboard []byte, root [32]byte) bool
+func DeriveKey(subKey []byte, ctx string, srcKey []byte)
+func Sum256(b []byte) (out [32]byte)
+func Sum512(b []byte) (out [64]byte)
+type Hasher struct{ ... }
+    func New(size int, key []byte) *Hasher
+type OutputReader struct{ ... }

@@ -1,0 +1,92 @@
+package mode3 // import "github.com/cloudflare/circl/sign/dilithium/mode3"
+
+type PrivateKey internal.PrivateKey
+    PrivateKey is the type of Dilithium3 private key
+
+func (sk *PrivateKey) Bytes() []byte
+func (sk *PrivateKey) Equal(other crypto.PrivateKey) bool
+func (sk *PrivateKey) MarshalBinary() ([]byte, error)
+func (sk *PrivateKey) Pack(buf *[PrivateKeySize]byte)
+func (sk *PrivateKey) Public() crypto.PublicKey
+func (sk *PrivateKey) Scheme() sign.Scheme
+func (sk *PrivateKey) Seed() []byte
+func (sk *PrivateKey) Sign(rand io.Reader, msg []byte, opts crypto.SignerOpts) (sig []byte, err error)
+func (sk *PrivateKey) UnmarshalBinary(data []byte) error
+func (sk *PrivateKey) Unpack(buf *[PrivateKeySize]byte)
+package mode3 // import "github.com/cloudflare/circl/sign/dilithium/mode3"
+
+type PublicKey internal.PublicKey
+    PublicKey is the type of Dilithium3 public key
+
+func (pk *PublicKey) Bytes() []byte
+func (pk *PublicKey) Equal(other crypto.PublicKey) bool
+func (pk *PublicKey) MarshalBinary() ([]byte, error)
+func (pk *PublicKey) Pack(buf *[PublicKeySize]byte)
+func (sk *PublicKey) Scheme() sign.Scheme
+func (pk *PublicKey) UnmarshalBinary(data []byte) error
+func (pk *PublicKey) Unpack(buf *[PublicKeySize]byte)
+package kem // import "github.com/cloudflare/circl/kem"
+
+type Scheme interface {
+	// Name of the scheme
+	Name() string
+
+	// GenerateKeyPair creates a new key pair.
+	GenerateKeyPair() (PublicKey, PrivateKey, error)
+
+	// Encapsulate generates a shared key ss for the public key and
+	// encapsulates it into a ciphertext ct.
+	Encapsulate(pk PublicKey) (ct, ss []byte, err error)
+
+	// Returns the shared key encapsulated in ciphertext ct for the
+	// private key sk.
+	Decapsulate(sk PrivateKey, ct []byte) ([]byte, error)
+
+	// Unmarshals a PublicKey from the provided buffer.
+	UnmarshalBinaryPublicKey([]byte) (PublicKey, error)
+
+	// Unmarshals a PrivateKey from the provided buffer.
+	UnmarshalBinaryPrivateKey([]byte) (PrivateKey, error)
+
+	// Size of encapsulated keys.
+	CiphertextSize() int
+
+	// Size of established shared keys.
+	SharedKeySize() int
+
+	// Size of packed private keys.
+	PrivateKeySize() int
+
+	// Size of packed public keys.
+	PublicKeySize() int
+
+	// DeriveKeyPair deterministically derives a pair of keys from a seed.
+	// Panics if the length of seed is not equal to the value returned by
+	// SeedSize.
+	DeriveKeyPair(seed []byte) (PublicKey, PrivateKey)
+
+	// Size of seed used in DeriveKey
+	SeedSize() int
+
+	// EncapsulateDeterministically generates a shared key ss for the public
+	// key deterministically from the given seed and encapsulates it into
+	// a ciphertext ct. If unsure, you're better off using Encapsulate().
+	EncapsulateDeterministically(pk PublicKey, seed []byte) (
+		ct, ss []byte, err error)
+
+	// Size of seed used in EncapsulateDeterministically().
+	EncapsulationSeedSize() int
+}
+    A Scheme represents a specific instance of a KEM.
+
+package kem // import "github.com/cloudflare/circl/kem"
+
+type PublicKey interface {
+	// Returns the scheme for this public key
+	Scheme() Scheme
+
+	encoding.BinaryMarshaler
+	Equal(PublicKey) bool
+}
+    A KEM public key
+
